@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Basics</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <!-- <header>
+      <h1>Vue Events</h1>
+    </header> -->
+    <section id="events">
+     
+      <ul>
+          <button  v-for="res in products" v-on:click="buy(res.id)" >{{ res.name }} - {{res.quantity}} - {{res.id}}</button>
+      </ul>
+      
+      
+     
+      <h2>Vending Machine</h2>
+      <!-- <button v-on:click="buy">Insert</button> -->
+      <button v-on:click="insert(1)">Insert</button>
+      <button v-on:click="reject(1)">Reject</button>
+      <!-- <button v-on:click="remove()">Selection</button>  -->
+      <p>Quarters Inserted: {{ amount }}</p>
+      <!-- <input type="number" v-on:keydown="setName"> -->
+      <!-- <p>Quarters Inserted: {{ quantity }}</p> -->
+      <p>Msg: {{ msg }}</p>
+
+      <!-- <select v-model="selected">
+        <option v-for="option in options" v-bind:value="option.value">
+          {{ option.text }}
+        </option>
+      </select>
+      <span>Selected: {{ selected }}</span> -->
+
+    </section>
+  </body>
+</html>
