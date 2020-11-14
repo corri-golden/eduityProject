@@ -3,6 +3,7 @@ const app = Vue.createApp({
       return {
         amount: 0,
         soldout: 'Sold Out',
+        dispense: "",
         selection: '',
         msg: '',
         sodaCans: ["pepsi", "coke", "sprite", "dr.pepper"],
@@ -23,7 +24,13 @@ const app = Vue.createApp({
               id: 3,
               name: 'sprite',
               quantity: 8
-          }
+          },
+          {
+            id: 3,
+            name: 'dr. pepper',
+            quantity: 5
+        }
+
         ],
       };
     },
@@ -63,24 +70,43 @@ const app = Vue.createApp({
         },
         buy(id) {
           this.products.forEach((product)=>{
-              if (product.id === id )
-              {
+            if (this.amount === 0)
+            {
+                console.log(this.amount)
+                this.msg = "Please enter a quarter"
+                // console.log("enter quarter")
+            } else {
+              if (product.id === id) {
                   product.quantity -= 1
                   this.amount = this.amount - 1
-                  console.log(product.quantity)
-                  if (product.quantity < 1)
-              {
-                  this.msg = "Sold out"
-                  product.name = "sold out"
-                  console.log("sold out")
+                  if (product.quantity < 1) 
+                  {
+                    this.msg = "Sold out"
+                    product.name = "sold out"
+                  }
               }
+            }
+            
+            
+            
+            // if (product.id === id )
+              // {
+              //     product.quantity -= 1
+              //     this.amount = this.amount - 1
+              //     console.log(product.quantity)
+              //     if (product.quantity < 1)
+              // {
+              //     this.msg = "Sold out"
+              //     product.name = "sold out"
+              //     console.log("sold out")
+              // }
               //     if (this.amount === 0)
               // {
               //     console.log(this.amount)
               //     this.msg = "Please enter a quarter"
               //     console.log("enter quarter")
               // }
-              } 
+              // } 
 
           }
           
