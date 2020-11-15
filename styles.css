@@ -28,14 +28,15 @@
     border-radius: 10px;
     padding: 1rem;
     text-align: center;
-    width: 90%;
-    max-width: 40rem;
+    /* width: 120%; */
+    max-width: 600px;
+    height: 650px;
   }
   
   #events h2 {
     font-size: 2rem;
     border-bottom: 4px solid #ccc;
-    color: #4fc08d;
+    color: #ec3169;
     margin: 0 0 1rem 0;
   }
   
@@ -43,10 +44,12 @@
     font-size: 1.25rem;
     font-weight: bold;
     border: 1px solid #4fc08d;
-    background-color: #4fc08d;
+    background-color: lightgray;
     color: white;
     padding: 0.5rem;
     border-radius: 25px;
+    width: 100px;
+    margin: auto
   }
   
   #events input {
@@ -63,13 +66,16 @@
   #events button {
     font: inherit;
     cursor: pointer;
-    border: 1px solid #ff0077;
-    background-color: #ff0077;
-    color: white;
+    /* border: 1px solid #ff0077; */
+    background-color: #f2f2f2;
+    color: black;
     padding: 0.05rem 1rem;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.26);
-    border-radius: 20px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.26);
+    border-radius: 10px;
     margin: 0 1rem;
+    height: 150px;
+    margin-top: 10px;
+    width: 102;
   }
   
   #events button:hover,
@@ -81,4 +87,61 @@
 
   li {
       border: 2px solid gray
+  }
+
+  .selection {
+    background-color: lightgray;
+    height: 200px;
+    width: 450px;
+    border: 2px solid darkgray;
+    margin: auto;
+    
+  }
+
+  #events button.insertBtn {
+    border-radius: 300px;
+    height: 75px;
+    background-color: rgb(231, 231, 112);
+    margin-top: 30px;
+  }
+
+  #events button.rejectBtn {
+    border-radius: 300px;
+    height: 75px;
+    background-color: #ec3169;
+    margin-top: 30px;
+
+  }
+
+  #events p.quarters {
+    /* width: 250px; */
+    margin-top: 30px;
+    border-radius: 300px;
+    width: 55px;
+    height: 50px;
+    width: 50px;
+    box-shadow: 2px 2px darkgray;
+    border: black
+
+  }
+
+  #events p.msg {
+    width: 250px;
+    height: 50px;
+    margin-top: 15px;
+    box-shadow: 2px 2px darkgray;
+    border: black;
+    border-radius: 10px;
+  }
+
+  ul {
+    padding: 0px
+  }
+
+  #events p.dispense {
+    width: 100px;
+    height: 50px;
+    margin-top: 15px;
+    border-radius: 0px;
+    background-color: black;
   }
