@@ -13,35 +13,18 @@
     <script src="app.js" defer></script>
   </head>
   <body>
-    <!-- <header>
-      <h1>Vue Events</h1>
-    </header> -->
     <section id="events">
-     
-      <ul>
-          <button  v-for="res in products" v-on:click="buy(res.id)" >{{ res.name }} - {{res.quantity}} - {{res.id}}</button>
-      </ul>
-      
-      
-     
-      <h2>Vending Machine</h2>
-      <!-- <button v-on:click="buy">Insert</button> -->
-      <button v-on:click="insert(1)">Insert</button>
-      <button v-on:click="reject(1)">Reject</button>
-      <!-- <button v-on:click="remove()">Selection</button>  -->
-      <p>Quarters Inserted: {{ amount }}</p>
-      <!-- <input type="number" v-on:keydown="setName"> -->
-      <!-- <p>Quarters Inserted: {{ quantity }}</p> -->
-      <p>Msg: {{ msg }}</p>
-      <p>{{ dispense }}</p>
-
-      <!-- <select v-model="selected">
-        <option v-for="option in options" v-bind:value="option.value">
-          {{ option.text }}
-        </option>
-      </select>
-      <span>Selected: {{ selected }}</span> -->
-
+      <h2>Eduity Vending Machine</h2>
+        <div class=selection>
+          <ul>
+            <button  v-for="res in products" v-on:click="buy(res.id)" :disabled="isDisable" >{{ res.name }}</button>
+          </ul>
+        </div>     
+      <button class="insertBtn" v-on:click="insert(1)">Insert</button>
+      <button class="rejectBtn" v-on:click="reject(1)">Reject</button>
+      <p class="quarters"> {{ amount }}</p>
+      <p class="msg">{{ msg }}</p>
+      <p class="dispense">{{ dispense }}</p>
     </section>
   </body>
 </html>

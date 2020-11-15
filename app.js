@@ -2,152 +2,68 @@ const app = Vue.createApp({
     data() {
       return {
         amount: 0,
+        isDisable: false,
         soldout: 'Sold Out',
         dispense: "",
-        selection: '',
         msg: '',
-        sodaCans: ["pepsi", "coke", "sprite", "dr.pepper"],
-        sodas: ["pepsi", "coke", "sprite"],
-        selected: '',
         products: [
             {
                 id: 1,
-                name: 'pepsi',
-                quantity: 2
+                name: 'Pepsi',
+                quantity: 9
             },
             {
                 id: 2,
-                name: 'coke',
+                name: 'Coke',
                 quantity: 8
             },
             {
               id: 3,
-              name: 'sprite',
+              name: 'Sprite',
               quantity: 8
-          },
-          {
-            id: 3,
-            name: 'dr. pepper',
-            quantity: 5
-        }
-
+            },
+            {
+              id: 4,
+              name: 'Crush',
+              quantity: 9
+            }
         ],
       };
     },
     methods: {
-        setName(event){
-            // console.log(event.target.value)
-            // this.products.forEach((product)=>console.log(product.id,product.name));
-            // users.forEach((user)=>console.log(user.id,user.name));
-            this.products.forEach((product)=>console.log(product.id,product.name));
-
-            
-            
-            
-            
-            
-            
-            
-            // value = event.target.value
-            // console.log(this.products[value])
-            // this.products.forEach((product)=>
-            //     if ( this.product + [value] === this.product[i] )
-            // );
-            // for (let i = 0; i < this.products.length; i++){
-            //     if (this.products[value] === this.products){
-            //         console.log("we have a match")
-            //     } 
-            // }
-            
-            
-            
-        },
+        // method to add a quarter 
         insert(num) {
             this.amount = this.amount + num;
         },
+        // method to subtract a quarter
         reject(num) {
             this.amount = this.amount - num;
         },
         buy(id) {
-          this.products.forEach((product)=>{
-            if (this.amount === 0)
-            {
-                console.log(this.amount)
+        // method to purchase a soda
+            this.products.forEach((product)=>{
+              // condition to test if a quarter has been inserted
+              if (this.amount === 0)
+              {
                 this.msg = "Please enter a quarter"
-                // console.log("enter quarter")
-            } else {
+                this.dispense = ""
+              } else {
               if (product.id === id) {
                   product.quantity -= 1
                   this.amount = this.amount - 1
+                  this.dispense = product.name
+                  this.msg = "Your Selection is Below"
+                  console.log(this.dispense)
+                  // nested conditional to test where sodas are in stock
                   if (product.quantity < 1) 
                   {
-                    this.msg = "Sold out"
-                    product.name = "sold out"
+                    product.name = "Sold out"
                   }
+                }
               }
             }
-            
-            
-            
-            // if (product.id === id )
-              // {
-              //     product.quantity -= 1
-              //     this.amount = this.amount - 1
-              //     console.log(product.quantity)
-              //     if (product.quantity < 1)
-              // {
-              //     this.msg = "Sold out"
-              //     product.name = "sold out"
-              //     console.log("sold out")
-              // }
-              //     if (this.amount === 0)
-              // {
-              //     console.log(this.amount)
-              //     this.msg = "Please enter a quarter"
-              //     console.log("enter quarter")
-              // }
-              // } 
-
-          }
-          
-          );
- 
-          
-          
-          // current = this.products[0].quantity - 1
-          //  console.log(id)
-          //  product = this.products[id]
-          //  console.log(product)
-          //  qty = product.quantity
-          //  console.log(qty)
-
-          //  qty = qty - 1 
-          //  console.log(qty)
-
-
-
-          //  product = getProduct(id);
-          // qty = this.products.quantity - 1;
-          //  console.log(qty)
-          //  console.log(id)
+          );          
         }
-        // selection() {
-
-        // }
-        
-        // setName(event){
-        //     this.name = event.target.value;
-        // },
-        // add(num) {
-        //     this.counter + num;
-        // },
-        // remove() {
-        //     this.counter--
-        // },
-        // test() {
-            
-        // }
     }
   });
-  
   app.mount('#events');
